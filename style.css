@@ -1,0 +1,397 @@
+@charset "utf-8";
+
+/* common */
+
+body {
+  margin: 0;
+  font-family: 'Noto Serif JP', serif;
+}
+
+h1,
+h2,
+p {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  object-fit: cover;
+}
+
+ul {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+a:hover {
+  opacity: .7;
+}
+
+.container {
+  margin: 0 auto;
+  padding: 0 20px;
+  max-width: 1024px;
+  width: 100%;
+  box-sizing: border-box;
+  /* 上の設定しないと要素が右にはみ出ちゃう
+  勝手にmargin-rightに-40pxついちゃって、右にスクロールできるようになっちゃう */
+}
+
+main {
+  background: #E5E2D7;
+}
+
+h1.logo {
+  font-size: 36px;
+  width: 40px;
+  height: 90px;
+}
+
+span.ne {
+  font-size: 14px;
+}
+
+h2.sec-tittle {
+  font-size: 36px;
+  font-weight: normal;
+}
+
+/* header */
+
+header {
+  color: white;
+  background: #010103;
+  position: relative;
+
+  writing-mode: vertical-rl;
+  /* writing-modeプロパティで文章を縦書きにすることができる */
+
+  text-orientation: upright;
+  /* text-orientationプロパティで英数字も縦書きにすることができる */
+
+  width: 100%;
+  /* ↑の設定しないと幅が中身の幅になる */
+
+  padding: 60px 70px;
+  box-sizing: border-box;
+}
+
+/* background-imageを小さく配置して、親要素に同じ背景色を設置したいため */
+header .bg{
+  background-image: url(pis.webp);
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+ /* ↑の設定しないと幅が中身の幅になる */
+}
+
+header ul {
+  font-size: 16px;
+  margin: 0 50px;
+}
+
+header li + li {
+  margin-right: 25px;
+}
+
+/* justify-content: space-between;で両端に設置でかかったので、positionで設置 */
+header .online {
+  position: absolute;
+  left: 40px;
+  bottom: 30px;
+  background: #333333;
+  color: white;
+  padding: 10px 25px;
+}
+
+header .online a {
+  border: 1px solid white;
+  padding: 40px 20px;
+}
+
+/* news */
+
+.news {
+  writing-mode: vertical-rl;
+  /* text-orientation: upright; */
+  /* こっちでは英字は90度回転させない */
+
+  width: 100%;
+  padding: 160px 0;
+}
+
+.news .en {
+  margin-right: 10px;
+  display: inline-block;
+  font-size: 14px;
+}
+
+.news .sec-tittle {
+  margin-left: 80px;
+}
+
+.news ul {
+  margin-top: 80px;
+  height: 240px;
+  /* width: 100%; */
+}
+
+.news li {
+  border-right: 1px solid black;
+  padding: 20px 30px;
+}
+
+.news li:last-child {
+  border-left: 1px solid black;
+}
+
+.news time {
+  font-size: 12px;
+}
+
+/* product共通設定 */
+
+.product h2 {
+  writing-mode: vertical-rl;
+  width: 70px;
+  /* なぜか幅が108px取られちゃうから指定しちゃう */
+}
+
+.product .en {
+  margin-top: 20px;
+  font-size: 14px;
+}
+
+.product .pic {
+  position: relative;
+  margin-top: 80px;
+}
+
+/* product1 */
+
+.product1 {
+  padding-bottom: 160px;
+  display: flex;
+  flex-direction: row-reverse;
+}
+
+.product1 .text {
+  position: absolute;
+  bottom: -20px;
+  left: -20px;
+  background: rgba(249, 233, 6, 0.6);
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+  width: 50%;
+  /* position: relativeに対しての50％*/
+}
+
+/* product2 */
+
+.product2 {
+  padding-bottom: 160px;
+  display: flex;
+}
+
+.product2 .text {
+  position: absolute;
+  bottom: -20px;
+  right: -20px;
+  background: rgba(149, 42, 38, 0.6);
+  color: white;
+  padding: 50px 0;
+  text-align: center;
+  width: 50%;
+  /* position: relativeに対しての50％*/
+}
+
+.product2 .pic {
+  margin: 100px 0 0 20px;
+  /* margin-top増やしたら.enの改行がなくなった */
+}
+
+/* store */
+
+iframe {
+  width: 100%;
+  vertical-align: bottom;
+}
+
+/* footer */
+
+footer {
+  background: black;
+  color: white;
+}
+
+footer .inner {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row-reverse;
+  padding: 0 30px;
+}
+
+footer .right,
+footer .left {
+  padding-top: 80px;
+  writing-mode: vertical-rl;
+}
+
+footer .right p {
+  padding-right: 60px;
+  font-size: 14px;
+}
+
+footer .right ul {
+  padding-right: 60px;
+  font-size: 16px;
+}
+
+footer .right li {
+  padding-left: 20px;
+}
+
+footer .contact {
+  display: flex;
+}
+
+footer .contact li + li::before{
+  content: "｜";
+}
+
+footer small {
+  font-size: 10px;
+  text-align: center;
+  display: block;
+  padding: 40px 0 20px 0;
+}
+
+
+@media (max-width: 786px) {
+
+  /* header */
+
+  header {
+    padding: 20px;
+  }
+
+  header .online {
+    left: 20px;
+    bottom: 20px;
+    padding: 10px 25px;
+  }
+
+  /* news */
+
+  .news {
+    padding: 80px 0;
+  }
+
+  .news .pc {
+    display: none;
+  }
+
+  .news .en {
+    margin-right: 20px;
+  }
+
+  .news .sec-tittle {
+    margin-left: 30px;
+    font-size: 28px;
+  }
+
+  .news ul {
+    margin-top: 30px;
+  }
+  
+  .news li {
+    padding: 20px 10px;
+  }
+
+  .news li:last-child {
+  border-left: 1px solid black;
+  }
+
+  /* product */
+
+  .product h2 {
+    font-size: 24px;
+    width: 40px;
+  }
+
+  .product .en {
+    display: none;
+  }
+
+  .product .pic {
+    width: 90%;
+  }
+
+  .product img {
+    width: 100%;
+    height: 100%;
+  }
+
+  .product .text {
+    width: 50%;
+  }
+
+  .product1 .text {
+    bottom: -20px;
+    left: -20px;
+    padding: 30px 0;
+    width: 60%;
+  }
+
+  .product2 .text {
+    bottom: -20px;
+    right: -20px;
+    padding: 20px 0;
+    width: 60%;
+  }
+
+  .product1,
+  .product2 {
+    padding-bottom: 100px;
+  }
+
+  /* footer */
+
+  footer .inner {
+    padding: 0 20px;
+  }
+
+  footer .right,
+  footer .left {
+  padding-top: 40px;
+}
+
+  footer .right p {
+    padding-right: 40px;
+  }
+
+  footer .right ul {
+    padding-right: 30px;
+    font-size: 14px;
+  }
+
+  footer .left ul {
+    font-size: 14px;
+  }
+
+  footer .right li {
+    padding-left: 10px;
+  }
+
+}
